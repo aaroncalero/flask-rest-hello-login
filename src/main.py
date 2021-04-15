@@ -47,10 +47,10 @@ def handle_hello():
 
 @app.route("/login", methods=["POST"])
 def login():
-    email=request.json.get("email", None)
+    rmail=request.json.get("email", None)
     password=request.json.get("password", None)
 
-    user=User.query.filter_by(email=email, password=password).first()
+    user=User.query.filter_by(rmail=email, password=password).first()
     if user is None:
         return jsonify ({"message:" "Bad user or password"})
 
